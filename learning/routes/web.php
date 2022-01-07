@@ -1,18 +1,37 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', function () {
-    return view('posts');
+    return view('posts',[
+        'posts' => Post::all()
+    ]);
 });
 
-Route::get('/post/{post}', function ($slug) {
+// Route::get("/posts/{id}", function ($id) {
+
+//     return view('post',[
+//         "post" => Post::findorFail($id)
+//     ]);
+
+// });
+
+Route::get("/posts/{post}", function (Post $post) {
 
     return view('post',[
-        "post" => Post::find($slug)
+        "post" => $post
     ]);
 
+});
+
+Route::get("/categories/{category:slug}", function (Category $category) {
+
+    return view('posts',[
+        "posts" => $category->posts
+    ]);
+    
 });

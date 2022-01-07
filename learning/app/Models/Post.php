@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
-class Post{
-    public static function all(){
-        
-        return $post =  file_get_contents($path);
-    
-    }
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-    public static function find($slug){
+class Post extends Model
+{
+    use HasFactory;
 
-
-    if(! file_exists($path = resource_path("/../resources/posts/{$slug}.html"))){
-        abort(404);
-    }
-
-    return $post =  file_get_contents($path);
-
-    }
+    //fillable these contetnt comes frontend 
+    protected $fillable = ['title','excerpt','body'];
+   
+    public function category(){
+        return $this->belongsTo(Category::class);
+    } 
 }

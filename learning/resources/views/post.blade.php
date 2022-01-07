@@ -8,9 +8,17 @@
 </head>
 <body>
     <article>
-       <?= $post;?>
+        <h1>
+            {{ $post->title}}
+        </h1>
+        <h3>Category: <a href="/categories/{{ $post -> category -> slug}}">{{ $post->category->name }}</a></h3>
+        <div>
+            {{$post->excerpt}}
+        </div>
+        <div>
+            {{$post->body}}
+        </div>
     </article>
     <a href="/">Go Back</a>
-
 </body>
 </html>
