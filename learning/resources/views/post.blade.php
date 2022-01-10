@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="./app.css">
 </head>
 <body>
-    <article>
+<div>
+  <article>
         <h1>
             {{ $post->title}}
         </h1>
-        <h3>Category: <a href="/categories/{{ $post -> category -> slug}}">{{ $post->category->name }}</a></h3>
+        <h3>
+            Category: 
+            <a href="/categories/{{ $post -> category -> slug}}">
+                {{ $post->category->name }}
+            </a>
+        </h3>
+        <h4>by author:
+            <a href="/authors/{{$post->author->username}}">{{ $post->author->name }}</a>
+        </h4>    
         <div>
             {{$post->excerpt}}
         </div>
@@ -20,5 +29,6 @@
         </div>
     </article>
     <a href="/">Go Back</a>
+  </div>
 </body>
 </html>
