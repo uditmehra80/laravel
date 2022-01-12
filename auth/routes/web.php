@@ -1,6 +1,10 @@
 <?php
-
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\AuthControl;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('login', [AuthControl::class,'login'])->name('login');
+
+
+// Route::get('users', [AuthControl::class,'userfunction']);
+Route::post('register', [AuthControl::class,'register']);
+Route::post('login', [AuthControl::class,'login']);
+
+
+
+
+
+Route::middleware('auth:api')->get('/users', [AuthControl::class,'userfunction']);
