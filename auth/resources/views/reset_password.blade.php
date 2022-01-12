@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <h3>Welcome page home</h3>
-    </div>
+    <h3>Reset page</h3>
 </body>
 </html>

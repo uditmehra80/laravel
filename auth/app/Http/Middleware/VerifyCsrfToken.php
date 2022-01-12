@@ -9,6 +9,7 @@ class VerifyCsrfToken extends BaseVerifier
     '/register', // specific route
     '/login',
     '/forgot-password',
-    '/reset-password'
+    '/reset-password',
+    '/api/password/reset'
   ];
 }
