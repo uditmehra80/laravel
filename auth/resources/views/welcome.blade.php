@@ -9,5 +9,8 @@
     <div>
         <h3>Welcome page home</h3>
     </div>
+    <a href="{{ route('google.login') }}" >
+        Login with Google
+    </a>
 </body>
 </html>

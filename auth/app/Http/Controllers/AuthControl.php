@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 
 use App\Models\User;
-use Dotenv\Validator as DotenvValidator;
 use Illuminate\Support\Facades\Redis;
 use Validator;
 
@@ -46,7 +45,7 @@ class AuthControl extends Controller
     
             return response()->json( $responseArray,200);
         }else{
-            return response()->json( ['errors'=> 'Unauthicated'],203);
+            return response()->json( ['errors'=> 'data not found'],203);
         }
     }
 
