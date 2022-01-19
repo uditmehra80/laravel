@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\AuthControl;
 
 use App\http\Controllers\GoogleController;
-
+use App\http\Controllers\AppleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +24,7 @@ Route::prefix('google')->name('google.')->group( function(){
     Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
     Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
+
+
+Route::get('/siwa-login', [AppleController::class,'login']);
+Route::post('/siwa-callback', [AppleController::class,'callback']);

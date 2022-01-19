@@ -12,5 +12,9 @@
     <a href="{{ route('google.login') }}" >
         Login with Google
     </a>
+    <button>
+        @signInWithApple('black', false, "sign-in", 5)
+    </button>
+    
 </body>
 </html>
