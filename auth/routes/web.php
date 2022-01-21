@@ -20,11 +20,17 @@ Route::middleware('auth:api')->get('/users', [AuthControl::class,'userfunction']
 
 Route::view('reset_password', 'reset_password')->name('password.reset');
 
+
+//Google LogIn
+
 Route::prefix('google')->name('google.')->group( function(){
     Route::get('login', [GoogleController::class, 'loginWithGoogle'])->name('login');
     Route::any('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
 
+////Apple LogIn
 
 Route::get('/siwa-login', [AppleController::class,'login']);
 Route::post('/siwa-callback', [AppleController::class,'callback']);
+
+/////////////

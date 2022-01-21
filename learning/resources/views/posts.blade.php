@@ -9,7 +9,7 @@
         <x-posts-grid :posts="$posts"/>
      
       @else
-        <p>No posts yet</p>
+        <h3 class="text-center">No posts yet</h3>
       @endif
 
         
