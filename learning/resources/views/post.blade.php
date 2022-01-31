@@ -50,6 +50,71 @@
                         {{ $post->body }}
                     </div>
                 </div>
+
+{{-- Comment --}}
+            
+                
+    <section class="col-span-8 col-start-5 mt-10 space-y-6">
+        
+        @auth
+    {{-- Form --}}  
+<form method="POST" 
+    class=" p-3 border bg-gray-200 border-gray-200 rounded-xl" 
+    action="/posts/{{ $post->slug }}/comments">
+
+    @csrf
+
+    <header class="flex items-center">
+        <img src="https://i.pravatar.cc/60?u=2"
+             alt=""
+             width="40"
+             height="40"
+             class="rounded-full">
+
+        <h2 class="ml-4">Want to participate?</h2>
+    </header>
+
+    <div class="mt-6">
+        <textarea
+            name="body"
+            class="w-full  text-sm focus:outline-none focus:ring bg-gray-100"
+            rows="5"
+            placeholder="Quick, thing of something to say!"
+            required>
+        </textarea>
+
+        @error('body')
+            <span class="text-xs text-red-500">{{ $message }}</span>
+        @enderror
+    </div>
+
+    <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">
+        <button type="submit" class="bg-blue-400 hover:bg-blue-600  px-4 py-2 rounded-xl">Post</button>
+    </div>
+</form>
+    @endauth
+{{-- END FORM  --}}
+            @foreach ($post->comments as $comment)
+                    <article class="flex bg-gray-100 p-6 border border-gray-200 rounded-xl space-x-3">
+                        <div>
+                            <img width="50"
+                            height="50"
+                            class="rounded-full"
+                            src="https://i.pravatar.cc/60?u={{ $comment->user_id }}" alt=""/>
+                        </div>
+                        <div>
+                            <header class="mb-4">
+                                <h3 class="font-bold"> {{ $comment->author->username }}</h3>
+                                <p class="text-xs">posted
+                                    <time>{{ $comment->created_at->format('F j,Y,g:i a') }}</time>
+                                </p>
+                            </header>
+                            <p class="">{{ $comment->body }}</p>
+                        </div>
+                    </article>
+            @endforeach
+    </section>
+{{-- End --}}
             </article>
         </main>
 

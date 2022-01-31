@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('project_id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description');
             $table->string('url');
             $table->json('extras');

@@ -37,7 +37,7 @@ class="transition-colors duration-300 hover:bg-gray-100 border border-black bord
             <div class="flex items-center text-sm">
                 <img src="/images/lary-avatar.svg" alt="Lary avatar">
                 <div class="ml-3">
-                    <h5 class="font-bold">{{$post->author->name}}</h5>
+                    <a href="authors/{{$post->author->username}}"><h5 class="font-bold">{{$post->author->name}}</h5></a>
                 </div>
             </div>
 
